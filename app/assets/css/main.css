@@ -1,5 +1,6 @@
-@import "tailwindcss/index";
-@import "fonts/index.css";
+@import "./variables.css";
+@import "./tailwindcss/index.css";
+@import "./fonts/index.css";
 
 * {
     box-sizing: border-box;
@@ -12,6 +13,8 @@ html {
 body {
     font-family: 'YekanBakhFa', sans-serif;
     direction: rtl;
+    background-color: var(--color-gray-50);
+    color: var(--color-blue-900);
 }
 
 .rtl {

@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center justify-center min-h-screen w-full">
-        <h1 class="text-4xl font-bold">خانه</h1>
+        <h1 class="text-lg font-bold xs:text-4xl">خانه</h1>
     </div>
 </template>
 
