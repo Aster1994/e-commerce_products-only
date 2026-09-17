@@ -31,4 +31,7 @@
 
     /* Blue */
     --color-blue-900: #0A2A51;
+
+    /* Shadow */
+    --shadow-card: 0px 2px 3px 0px #00000008;
 }

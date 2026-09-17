@@ -44,4 +44,7 @@
 
     /* Blue */
     --color-blue-900: var(--color-blue-900);
+
+    /* Shadow */
+    --shadow-card: var(--shadow-card);
 }
