@@ -76,7 +76,7 @@ const links: Link[] = [
 ]
 </script>
 
-<style>
+<style scoped>
 .router-link-exact-active {
     position: relative;
     color: var(--color-primary);
