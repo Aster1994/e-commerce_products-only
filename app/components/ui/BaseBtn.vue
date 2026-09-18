@@ -55,8 +55,9 @@ const variantClass: Record<Variant, string> = {
         :aria-label="isIconOnly ? ariaLabel : undefined"
         :aria-busy="loading"
         :class="[
-      'base-btn h-10 px-4 py-3 inline-flex items-center justify-center gap-2 text-sm font-bold leading-4',
+      'base-btn  inline-flex items-center justify-center gap-2 text-sm font-bold leading-4',
       'transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40',
+      isIconOnly ? 'w-10 h-10' : 'h-10 px-4 py-3',
       roundedClass[rounded],
       variantClass[variant],
     ]"
@@ -64,9 +65,9 @@ const variantClass: Record<Variant, string> = {
         <BaseSpinner v-if="loading" size="sm"/>
 
         <template v-else>
-            <Icon v-if="prependIcon" :name="prependIcon"/>
+            <Icon v-if="prependIcon" :name="prependIcon" :size="16"/>
             <slot/>
-            <Icon v-if="appendIcon" :name="appendIcon"/>
+            <Icon v-if="appendIcon" :name="appendIcon" :size="16"/>
         </template>
     </button>
 </template>
