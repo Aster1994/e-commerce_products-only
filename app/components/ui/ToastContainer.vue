@@ -11,7 +11,7 @@ const {toasts, dismiss} = useToast();
         >
             <TransitionGroup name="toast" tag="div" class="flex flex-col gap-2">
                 <div v-for="toast in toasts" :key="toast.id" class="pointer-events-auto">
-                    <BaseAlert variant="error" @dismiss="dismiss(toast)">
+                    <BaseAlert :variant="toast.type" @dismiss="dismiss(toast)">
                         {{ toast.title }}
                     </BaseAlert>
                 </div>
