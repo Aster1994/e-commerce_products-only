@@ -14,6 +14,16 @@ export default defineNuxtConfig({
         '@nuxt/fonts'
     ],
 
+    icon: {
+        customCollections: [
+            {
+                prefix: 'fig',
+                dir: './app/assets/icons',
+            },
+        ],
+        serverBundle: 'local', // bundle at build time, no Iconify API calls in prod
+    },
+
     runtimeConfig: {
         apiBaseUrl: env.NUXT_PUBLIC_API_BASE_URL,
     },
