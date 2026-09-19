@@ -11,6 +11,7 @@
             <li class="flex shrink-0 items-center">
                 <NuxtLink
                     aria-label="صفحه اصلی"
+                    to="/"
                     class="flex items-center transition-opacity hover:opacity-70"
                 >
                     <Icon
