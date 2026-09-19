@@ -1,7 +1,7 @@
 <template>
     <footer class="w-full h-max shadow-card">
         <section
-            class="bg-gray-0 px-4 md:px-20 2xl:px-[10.25rem] py-10 grid grid-cols-2 md:grid-cols-4 justify-between gap-y-16">
+            class="bg-gray-0 px-4 md:px-20 2xl:px-[10.25rem] py-10 grid grid-cols-2 md:grid-cols-4 justify-between gap-y-16 gap-x-4">
             <div class="col-span-2 md:col-span-1 flex flex-col h-full items-center justify-center gap-8">
                 <div class="w-[225px] min-h-[65px]"></div>
                 <span class="hidden md:inline text-[13px] font-medium text-gray-700 leading-6">
