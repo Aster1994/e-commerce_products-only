@@ -12,3 +12,10 @@ export interface Product {
     image: string
     rating: ProductRating
 }
+
+export type SortOption = 'count-asc' | 'count-desc' | 'rating-desc' | 'rating-asc'
+
+export interface SortOptionConfig {
+    value: SortOption
+    label: string
+}

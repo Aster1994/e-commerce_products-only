@@ -33,7 +33,11 @@ defineProps<{ product: Product }>()
             class="!border-[1.5px] !border-gray-50"
             variant="outline"
         >
-            مشاهده جزیات
+            مشاهده
+            <span class="hidden sm:inline">
+                جزیات
+
+            </span>
         </BaseBtn>
     </article>
 </template>

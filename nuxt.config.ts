@@ -10,8 +10,10 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/image',
         '@nuxt/icon',
+        '@nuxt/fonts',
         '@nuxt/eslint',
-        '@nuxt/fonts'
+        '@nuxtjs/seo', // sitemap.xml / robots.txt automation + useSeoMeta;
+        '@pinia/nuxt',
     ],
 
     icon: {
@@ -25,7 +27,9 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
-        apiBaseUrl: env.NUXT_PUBLIC_API_BASE_URL,
+        public: {
+            apiBaseUrl: env.NUXT_PUBLIC_API_BASE_URL,
+        }
     },
 
     vite: {

@@ -1,7 +1,5 @@
-export interface SortOptionConfig {
-    value: SortOption
-    label: string
-}
+import type {SortOption, SortOptionConfig} from "~/types/product/product.ts";
+
 
 export const SORT_OPTIONS: SortOptionConfig[] = [
     {value: 'count-asc', label: 'تعداد: کم به زیاد'},
@@ -14,14 +12,6 @@ export function getSortLabel(sort: SortOption | null): string | null {
     return SORT_OPTIONS.find((option) => option.value === sort)?.label ?? null
 }
 
-export type SortOption = 'count-asc' | 'count-desc' | 'rating-desc' | 'rating-asc'
-
-export interface ProductFiltersState {
-    search: string
-    categories: string[]
-    sort: SortOption | null
-    page: number
-}
 
 const CATEGORY_LABELS: Record<string, string> = {
     "men's clothing": 'پوشاک مردانه',
