@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import BaseSpinner from "~/components/ui/BaseSpinner.vue";
 import {NuxtLink} from '#components'
 
@@ -42,8 +42,11 @@ const isIconOnly = computed(
 // needs aria-disabled + pointer-events-none instead.
 const rootBindings = computed(() =>
     !props.to && !props.href
-        ? {type: props.type, disabled: props.disabled || props.loading}
-        : {'aria-disabled': props.disabled || props.loading || undefined},
+        ? {
+            type: props.type,
+            disabled: props.disabled || props.loading
+        } : props.to ? {to: props.to} : props.href ? {href: props.href}
+            : {'aria-disabled': props.disabled || props.loading || undefined},
 )
 
 const roundedClass: Record<Rounded, string> = {
@@ -69,11 +72,8 @@ const handleClick = (e) => {
 <template>
     <component
         :is="to ? NuxtLink : href ? 'a' : 'button'"
-        v-bind="rootBindings"
-        :aria-label="isIconOnly ? ariaLabel : undefined"
         :aria-busy="loading"
-        :href="href"
-        :to="to"
+        :aria-label="isIconOnly ? ariaLabel : undefined"
         :class="[
       'cursor-pointer inline-flex items-center justify-center gap-2 text-sm font-bold leading-4',
       'transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40',
@@ -82,6 +82,7 @@ const handleClick = (e) => {
       roundedClass[rounded],
       variantClass[variant],
     ]"
+        v-bind="rootBindings"
         @click="handleClick"
     >
         <BaseSpinner v-if="loading" size="sm"/>
