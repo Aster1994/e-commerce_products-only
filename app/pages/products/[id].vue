@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto max-w-6xl px-4 py-6">
+    <div class="mx-auto max-w-max-width-container py-6">
         <Breadcrumb
             :items="[
         { label: categoryLabel, to: `/products?category=${product.category}` },
@@ -29,7 +29,8 @@
 
                 <span class="text-xl font-bold text-blue-900">مشخصات فنی</span>
 
-                <div v-for="(row, i) in tableData" :key="i" class="grid grid-cols-[172px_1fr] items-center gap-3">
+                <div v-for="(row, i) in tableData" :key="i"
+                     class="grid grid-cols-1 sm:grid-cols-[172px_1fr] items-center gap-3">
                     <div
                         class="p-[13px] h-full text-sm font-medium text-gray-600 bg-gray-25 rounded-l-sm rounded-r-2xl">
                         {{ row.title }}
