@@ -5,4 +5,8 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+    title: 'فروشگاه',
+    description: 'فروشگاه تست محصولات با امکان جستجو، فیلتر و مشاهده جزئیات.',
+})
 </script>

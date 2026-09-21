@@ -44,10 +44,10 @@
                         class="p-[13px] min-h-12 h-full text-sm font-medium text-gray-600 bg-gray-25 rounded-2xl sm:rounded-l-sm sm:rounded-r-2xl">
                         {{ row.title }}
                     </div>
-                    <div
-                        class="p-[13px] min-h-12 h-full text-sm font-bold text-gray-800 bg-gray-25 rounded-2xl sm:rounded-r-sm sm:rounded-l-2xl">
+                    <component :is="row.tag"
+                               class="p-[13px] min-h-12 h-full text-sm font-bold text-gray-800 bg-gray-25 rounded-2xl sm:rounded-r-sm sm:rounded-l-2xl">
                         {{ row.value }}
-                    </div>
+                    </component>
 
                 </div>
             </BaseCard>
@@ -83,32 +83,51 @@ const tableData = [
     {
         title: 'قیمت',
         value: `${commaSeparator(product.value?.price?.toFixed(2))} تومان `,
+        tag: 'span'
     },
     {
         title: 'توضیحات',
         value: product.value?.description,
+        tag: 'p'
     },
     {
         title: 'دسته بندی',
         value: categoryLabel.value,
+        tag: 'h2'
     },
     {
         title: 'رتبه',
         value: product.value?.rating?.rate,
+        tag: 'span'
     },
     {
         title: 'تعداد',
         value: product.value?.rating?.count,
+        tag: 'span'
     },
 
 ]
 
+const siteUrl = useSiteConfig().url
+const productTitle = computed(() => product.value?.title ?? 'محصول پیدا نشد')
+const productDescription = computed(() =>
+    product.value?.description ?? 'جزئیات محصول مورد نظر در دسترس نیست.',
+)
+
 useSeoMeta({
-    title: product.value?.title,
-    description: product.value?.description,
-    ogTitle: product.value?.title,
-    ogDescription: product.value?.description,
-    ogImage: product.value?.image,
+    title: productTitle,
+    description: productDescription,
+    ogTitle: productTitle,
+    ogDescription: productDescription,
+    ogImage: computed(() => product.value?.image),
+    robots: computed(() => product.value ? 'index, follow' : 'noindex, follow'),
+})
+
+useHead({
+    link: [{
+        rel: 'canonical',
+        href: computed(() => `${siteUrl}/products/${route.params.id}`),
+    }],
 })
 
 </script>

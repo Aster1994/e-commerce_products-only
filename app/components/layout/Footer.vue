@@ -10,9 +10,9 @@
             </div>
 
             <div class="flex flex-col gap-3 w-max">
-                <h4 class="text-xl font-bold text-gray-900 mb-3">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">
                     دسترسی سریع
-                </h4>
+                </h2>
                 <NuxtLink to="/about" class="text-[13px] font-medium text-gray-800">درباره ما</NuxtLink>
                 <NuxtLink to="/blog" class="text-[13px] font-medium text-gray-800">بلاگ</NuxtLink>
                 <NuxtLink to="/contact" class="text-[13px] font-medium text-gray-800">تماس با ما</NuxtLink>
@@ -20,28 +20,28 @@
             </div>
 
             <div class="flex flex-col gap-3 w-max">
-                <h4 class="text-xl font-bold text-gray-900 mb-3">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">
                     راهنمای سایت
-                </h4>
+                </h2>
                 <NuxtLink to="#" class="text-[13px] font-medium text-gray-800">قوانین و مقررات</NuxtLink>
                 <NuxtLink to="/consulting" class="text-[13px] font-medium text-gray-800">دریافت مشاوره</NuxtLink>
                 <NuxtLink to="#" class="text-[13px] font-medium text-gray-800">انتقادات و پیشنهادات</NuxtLink>
             </div>
 
             <div class="flex flex-col gap-3 w-max">
-                <h4 class="text-xl font-bold text-gray-900 mb-3">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">
                     شبکه‌های اجتماعی
-                </h4>
-                <a href="https://www.google.com" class="font-medium flex items-center gap-3">
-                    <Icon name="fig:telegram" :size="16" class="text-gray-500"/>
+                </h2>
+                <a class="font-medium flex items-center gap-3" href="#">
+                    <Icon :size="16" class="text-gray-500" name="fig:telegram"/>
                     <span class="text-sm text-gray-900">تلگرام</span>
                 </a>
-                <a href="https://www.google.com" class="font-medium flex items-center gap-3">
-                    <Icon name="fig:instagram" :size="16" class="text-gray-500"/>
+                <a class="font-medium flex items-center gap-3" href="#">
+                    <Icon :size="16" class="text-gray-500" name="fig:instagram"/>
                     <span class="text-sm text-gray-900">اینستاگرام</span>
                 </a>
-                <a href="https://www.google.com" class="font-medium flex items-center gap-3">
-                    <Icon name="fig:linkedin" :size="16" class="text-gray-500"/>
+                <a class="font-medium flex items-center gap-3" href="#">
+                    <Icon :size="16" class="text-gray-500" name="fig:linkedin"/>
                     <span class="text-sm text-gray-900">لینکدین</span>
                 </a>
             </div>
@@ -53,7 +53,8 @@
                 <div class="max-w-[320px] flex flex-col items-center gap-4">
                     <span class="text-[13px] text-gray-700 text-center">تمامی حقوق مادی و معنوی این وبسایت متعلق به می‌باشد و هر گونه کپی برداری پیگرد قانونی دارد.</span>
                     <div class="flex items-center gap-4">
-                        <a v-for="social in socialLinks" :key="social.id" :href="social.link"
+                        <a v-for="social in socialLinks" :key="social.id" :aria-label="social.name"
+                           :href="social.link"
                            class="text-primary/50 hover:text-primary ">
                             <Icon :name="social.icon" :size="24"/>
                         </a>
@@ -85,31 +86,31 @@ const socialLinks = [
         id: 1,
         name: 'Telegram',
         icon: 'fig:telegram',
-        link: 'https://www.google.com',
+        link: '#',
     },
     {
         id: 2,
         name: 'Instagram',
         icon: 'fig:instagram',
-        link: 'https://www.google.com',
+        link: '#',
     },
     {
         id: 3,
         name: 'Twitter',
         icon: 'fig:twitter',
-        link: 'https://www.google.com',
+        link: '#',
     },
     {
         id: 1,
         name: 'Youtube',
         icon: 'fig:youtube',
-        link: 'https://www.google.com',
+        link: '#',
     },
     {
         id: 1,
         name: 'Linkedin',
         icon: 'fig:linkedin',
-        link: 'https://www.google.com',
+        link: '#',
     },
 
 ]

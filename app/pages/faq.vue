@@ -5,4 +5,9 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+    title: 'سوالات متداول',
+    description: 'پاسخ به سوالات متداول کاربران',
+    robots: 'noindex, follow',
+})
 </script>

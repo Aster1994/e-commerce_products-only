@@ -5,4 +5,9 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+    title: 'بلاگ',
+    description: 'مطالب و اخبار فروشگاه',
+    robots: 'noindex, follow',
+})
 </script>

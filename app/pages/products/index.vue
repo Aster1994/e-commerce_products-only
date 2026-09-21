@@ -1,6 +1,6 @@
 <template>
     <div class="max-w-max-width-container py-6">
-        
+
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-[320px_1fr]">
 
             <aside class="order-1 lg:order-1">
@@ -31,15 +31,30 @@ import ProductGrid from "~/components/pages/Product/ProductGrid.vue";
 import BasePagination from "~/components/ui/BasePagination.vue";
 import ProductFilters from "~/components/pages/Product/ProductFilters.vue";
 
+const route = useRoute()
 const store = useSyncFiltersWithRoute()
 const {status, error, refresh, categoryCounts, paginatedProducts, totalPages, isEmpty} =
     useProductCatalog()
+
+const siteUrl = useSiteConfig().url
+const hasQueryFilters = computed(() => {
+    return Object.keys(route.query).length > 0
+
+})
 
 useSeoMeta({
     title: 'لیست محصولات',
     description: 'محصولات ما را مرور، جستجو و بر اساس دسته‌بندی و امتیاز فیلتر کنید.',
     ogTitle: 'لیست محصولات',
     ogDescription: 'محصولات ما را مرور، جستجو و بر اساس دسته‌بندی و امتیاز فیلتر کنید.',
+    robots: computed(() => hasQueryFilters.value ? 'noindex, follow' : 'index, follow'),
+})
+
+useHead({
+    link: [{
+        rel: 'canonical',
+        href: computed(() => `${siteUrl}/products`),
+    }],
 })
 </script>
 
