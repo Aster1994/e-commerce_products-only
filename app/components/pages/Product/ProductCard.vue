@@ -16,7 +16,6 @@ defineProps<{ product: Product }>()
                 format="webp"
                 height="400"
                 loading="lazy"
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                 width="400"
             />
         </NuxtLink>

@@ -4,7 +4,7 @@ import env from "./app/lib/env.ts";
 
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
-    devtools: {enabled: true},
+    devtools: {enabled: import.meta.dev},
     css: ["~/assets/css/main.css"],
 
     modules: [
@@ -15,6 +15,11 @@ export default defineNuxtConfig({
         '@nuxtjs/seo', // sitemap.xml / robots.txt automation + useSeoMeta;
         '@pinia/nuxt',
     ],
+
+    image: {
+        domains: ['fakestoreapi.com'],
+        format: ['webp'],
+    },
 
     icon: {
         customCollections: [
@@ -55,6 +60,11 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
+        ipx: {
+            http: {
+                domains: ['fakestoreapi.com'],
+            },
+        },
         public: {
             apiBaseUrl: env.NUXT_PUBLIC_API_BASE_URL,
             siteUrl: env.NUXT_PUBLIC_SITE_URL,
