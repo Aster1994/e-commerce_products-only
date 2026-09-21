@@ -5,7 +5,7 @@
         dir="rtl"
     >
         <ol
-            class="flex items-center gap-4 text-sm font-bold text-gray-500"
+            class="flex items-center gap-2 text-sm font-bold text-gray-500"
         >
             <!-- Home -->
             <li class="flex shrink-0 items-center">
