@@ -31,6 +31,19 @@ export default defineNuxtConfig({
         serverBundle: 'local', // bundle at build time, no Iconify API calls in prod
     },
 
+    fonts: {
+        provider: 'local',
+        families: [
+            {
+                name: 'YekanBakhFa',
+                src: '/assets/fonts/YekanBakhFaNum/YekanBakhFaNum-Regular.woff2',
+                weight: 400,
+                style: 'normal',
+                preload: true,
+            },
+        ],
+    },
+
     site: {
         url: env.NUXT_PUBLIC_SITE_URL,
         name: 'فروشگاه تست',

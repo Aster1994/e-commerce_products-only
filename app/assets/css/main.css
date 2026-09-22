@@ -1,6 +1,5 @@
 @import "./variables.css";
 @import "./tailwindcss/index.css";
-@import "./fonts/index.css";
 
 * {
     box-sizing: border-box;
