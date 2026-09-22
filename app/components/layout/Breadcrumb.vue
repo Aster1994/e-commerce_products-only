@@ -5,13 +5,14 @@
         dir="rtl"
     >
         <ol
-            class="flex items-center gap-4 text-sm font-bold text-gray-500"
+            class="flex items-center gap-2 text-sm font-bold text-gray-500"
         >
             <!-- Home -->
             <li class="flex shrink-0 items-center">
                 <NuxtLink
                     aria-label="صفحه اصلی"
                     class="flex items-center transition-opacity hover:opacity-70"
+                    to="/"
                 >
                     <Icon
                         aria-hidden="true"
@@ -39,11 +40,11 @@
 
                 <!-- Item -->
                 <li
-                    :aria-current="index === items.length - 2 ? 'page' : undefined"
+                    :aria-current="index === items.length - 1 ? 'page' : undefined"
                     class="flex min-w-0 items-center"
                 >
                     <NuxtLink
-                        v-if="item.to && index !== items.length - 2"
+                        v-if="item.to && index !== items.length - 1"
                         :to="item.to"
                         class="truncate transition-opacity hover:opacity-70"
                     >

@@ -1,27 +1,23 @@
 <template>
     <div
+        class="flex min-h-screen flex-col items-center justify-center gap-4 bg-gray-25 px-4 text-center"
         dir="rtl"
         lang="fa"
-        class="flex min-h-screen flex-col items-center justify-center gap-4 bg-gray-25 px-4 text-center"
     >
-    <span class="text-primary" aria-hidden="true">
-      <Icon name="app:alert-triangle" class="h-16 w-16"/>
-    </span>
-
         <p class="text-6xl font-bold text-gray-900">{{ statusCode }}</p>
         <h1 class="text-lg font-bold text-gray-800">{{ content.title }}</h1>
         <p class="max-w-sm text-sm text-gray-600">{{ content.description }}</p>
 
         <div class="flex gap-3 pt-2">
             <BaseBtn @click="goHome">بازگشت به صفحه اصلی</BaseBtn>
-            <BaseBtn v-if="!isNotFound" variant="outline" rounded="sm" @click="retry">
+            <BaseBtn v-if="!isNotFound" rounded="sm" variant="outline" @click="retry">
                 تلاش مجدد
             </BaseBtn>
         </div>
     </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import type {NuxtError} from '#app'
 import BaseBtn from "~/components/ui/BaseBtn.vue";
 

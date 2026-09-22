@@ -9,6 +9,7 @@ loadEnv();
 const EnvSchema = z.object({
   NUXT_PUBLIC_API_BASE_URL: z.httpUrl(),
   NUXT_PUBLIC_APP_ENV: z.enum(["development", "production"]),
+  NUXT_PUBLIC_SITE_URL: z.httpUrl(),
 });
 
 export type EnvSchema = z.infer<typeof EnvSchema>;

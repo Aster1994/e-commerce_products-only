@@ -5,4 +5,9 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+    title: 'درباره ما',
+    description: 'معرفی فروشگاه',
+    robots: 'noindex, follow',
+})
 </script>

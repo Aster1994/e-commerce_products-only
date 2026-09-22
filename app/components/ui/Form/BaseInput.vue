@@ -1,6 +1,6 @@
 <template>
     <div
-        class="base-input group flex h-10 items-center gap-2 rounded-full border border-gray-50 bg-gray-25 px-4 transition-colors focus-within:border-primary"
+        class="base-input group flex h-10 items-center gap-2 rounded-2xl border border-gray-50 bg-gray-25 px-4 transition-colors focus-within:border-primary"
     >
         <Icon
             v-if="prependIcon"

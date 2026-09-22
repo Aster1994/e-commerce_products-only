@@ -5,4 +5,9 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+    title: 'خدمات پس از فروش',
+    description: 'خدمات پس از فروش فروشگاه',
+    robots: 'noindex, follow',
+})
 </script>

@@ -2,11 +2,12 @@
     <div class="bg-gray-0 rounded-b-4xl h-[4.5rem] md:h-[7.5rem] shadow-card">
         <!--Mobile-->
         <nav class="w-full h-full flex md:hidden justify-between items-center">
-            <BaseBtn variant="outline" prepend-icon="fig:menu" rounded="sm" @click="showMobileMenu = !showMobileMenu"/>
-            <BaseBtn variant="outline" prepend-icon="fig:phone-ring" rounded="sm"/>
+            <BaseBtn variant="outline" prepend-icon="fig:menu" rounded="sm" aria-label="باز کردن منو" :aria-expanded="showMobileMenu" aria-controls="mobile-navigation" @click="showMobileMenu = !showMobileMenu"/>
+            <BaseBtn variant="outline" prepend-icon="fig:phone-ring" rounded="sm" aria-label="تماس با ما"/>
 
             <transition name="submenu">
                 <aside v-if="showMobileMenu"
+                       id="mobile-navigation"
                        class="fixed p-10 h-max top-[5rem] shadow-card bg-gray-0 rounded-4xl z-10">
                     <div class="h-full w-full flex flex-col gap-6">
                         <NuxtLink v-for="link in links" :key="link.id" :to="link.to" class="flex items-center gap-2"

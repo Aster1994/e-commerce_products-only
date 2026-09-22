@@ -5,4 +5,9 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+    title: 'تماس با ما',
+    description: 'راه‌های ارتباط با فروشگاه',
+    robots: 'noindex, follow',
+})
 </script>

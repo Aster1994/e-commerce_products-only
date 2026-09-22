@@ -1,7 +1,7 @@
 <template>
     <main>
         <Header class="px-4 md:px-20 2xl:px-[10.25rem]"/>
-        <div>
+        <div class="px-4 md:px-20 2xl:px-[10.25rem]">
             <slot/>
         </div>
         <Footer/>

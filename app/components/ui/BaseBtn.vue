@@ -1,5 +1,6 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import BaseSpinner from "~/components/ui/BaseSpinner.vue";
+import {NuxtLink} from '#components'
 
 type Variant = 'solid' | 'outline' | 'ghost'
 type Rounded = 'sm' | 'md' | 'full' // 8px / 16px / 100%
@@ -14,6 +15,8 @@ interface Props {
     ariaLabel?: string,
     prependIcon?: string,
     appendIcon?: string,
+    href?: string, // in case of a tag
+    to?: string, // in case of NuxtLink tag
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,16 +28,30 @@ const props = withDefaults(defineProps<Props>(), {
     ariaLabel: undefined,
     prependIcon: '',
     appendIcon: '',
+    href: '',
+    to: ''
 })
 
+const emit = defineEmits(['click'])
 const slots = useSlots()
 const isIconOnly = computed(
     () => !slots.default && (!!props.prependIcon || !!props.appendIcon),
 )
 
+// type/disabled are only valid on a real <button>; a disabled NuxtLink/anchor
+// needs aria-disabled + pointer-events-none instead.
+const rootBindings = computed(() =>
+    !props.to && !props.href
+        ? {
+            type: props.type,
+            disabled: props.disabled || props.loading
+        } : props.to ? {to: props.to} : props.href ? {href: props.href}
+            : {'aria-disabled': props.disabled || props.loading || undefined},
+)
+
 const roundedClass: Record<Rounded, string> = {
     sm: 'rounded-lg',
-    md: 'rounded-xl',
+    md: 'rounded-2xl',
     full: 'rounded-full',
 }
 
@@ -46,21 +63,27 @@ const variantClass: Record<Variant, string> = {
     ghost:
         'bg-transparent text-primary border border-transparent hover:bg-primary/5 active:bg-primary/10',
 }
+
+const handleClick = (e) => {
+    if (!props.disabled && !props.loading) emit('click', e)
+}
 </script>
 
 <template>
-    <button
-        :type="type"
-        :disabled="disabled || loading"
-        :aria-label="isIconOnly ? ariaLabel : undefined"
+    <component
+        :is="to ? NuxtLink : href ? 'a' : 'button'"
         :aria-busy="loading"
+        :aria-label="isIconOnly ? ariaLabel : undefined"
         :class="[
-      'base-btn  inline-flex items-center justify-center gap-2 text-sm font-bold leading-4',
+      'cursor-pointer inline-flex items-center justify-center gap-2 text-sm font-bold leading-4',
       'transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40',
-      isIconOnly ? 'w-10 h-10' : 'h-10 px-4 py-3',
+      (disabled || loading) && (to || href) && 'pointer-events-none opacity-40',
+      isIconOnly ? 'h-10 w-10 p-0' : 'h-10 px-4 py-3',
       roundedClass[rounded],
       variantClass[variant],
     ]"
+        v-bind="rootBindings"
+        @click="handleClick"
     >
         <BaseSpinner v-if="loading" size="sm"/>
 
@@ -69,5 +92,6 @@ const variantClass: Record<Variant, string> = {
             <slot/>
             <Icon v-if="appendIcon" :name="appendIcon" :size="16"/>
         </template>
-    </button>
+
+    </component>
 </template>
